@@ -3,7 +3,7 @@ FROM alpine:3.23 AS fetcher
 
 # install and copy ca-certificates, mailcap, and tini-static; download JSON.sh
 RUN apk update && \
-    apk --no-cache add ca-certificates mailcap tini-static && \
+    apk --no-cache add ca-certificates mailcap tini-static wget && \
     wget -O /JSON.sh https://raw.githubusercontent.com/dominictarr/JSON.sh/0d5e5c77365f63809bf6e77ef44a1f34b0e05840/JSON.sh
 
 # Download Filebrowser tar.gz and extract
