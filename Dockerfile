@@ -23,8 +23,10 @@ ENV GID=100
 #RUN addgroup -g $GID user && \
 #    adduser -D -u $UID -G user user
 
+# Copy Filebrowser binary from fetcher stage
+COPY --chown=99:100 --from=fetcher /filebrowser /bin/filebrowser
+
 # Copy binary, scripts, and configurations into image with proper ownership
-COPY --chown=99:100 filebrowser /bin/filebrowser
 COPY --chown=99:100 docker/common/ /
 COPY --chown=99:100 docker/alpine/ /
 COPY --chown=99:100 --from=fetcher /sbin/tini-static /bin/tini
