@@ -45,7 +45,7 @@ RUN mkdir -p /config /database /srv && \
 HEALTHCHECK --start-period=2s --interval=5s --timeout=3s CMD /healthcheck.sh
 
 # Set the user, volumes and exposed ports
-USER user
+USER 99:100
 
 VOLUME /srv /config /database
 
